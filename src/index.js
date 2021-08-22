@@ -1,5 +1,7 @@
 import * as myToken from './token';
 import * as myDom from './dom';
+import * as convert from './convert';
+import * as utilis from './utility';
 import './styles.css';
 
 myDom.userLocationForm.addEventListener('submit', (e) => {
@@ -8,16 +10,11 @@ myDom.userLocationForm.addEventListener('submit', (e) => {
   const userData = myDom.userLocation.value;
   const listValue = new UserInput(userData);
   myDom.totalList.push(listValue.topic);
-  saveAndRender();
-  clearData();
+  utilis.saveAndRender();
+  utilis.clearData();
 });
 
-const saveAndRender = () => {
-  saveToLocal();
-  render();
-};
-
-const render = () => {
+export const render = () => {
   const userData = myDom.userLocation.value;
   const listValue = new UserInput(userData);
   fetch(
@@ -41,7 +38,7 @@ const render = () => {
         if (myDom.checkConverter.checked) {
           myDom.tempDisplay.innerHTML = `
       <h4 class="card-title text-center location_title2">${listValue.topic}</h4>
-              <p class="card-text text-center cur-temp2">Current Temp: ${convertToFahrenheit(
+              <p class="card-text text-center cur-temp2">Current Temp: ${convert.convertToFahrenheit(
                 mainTemp
               )} °F</p>
               <p class="card-text text-center hum2">Humidity: ${humidity}%</p>
@@ -49,7 +46,7 @@ const render = () => {
         } else {
           myDom.tempDisplay.innerHTML = `
       <h4 class="card-title text-center location_title3">${listValue.topic}</h4>
-              <p class="card-text text-center cur-temp3">Current Temp: ${convertToCelcius(
+              <p class="card-text text-center cur-temp3">Current Temp: ${convert.convertToCelcius(
                 mainTemp
               )} °C </p>
               <p class="card-text text-center hum3">Humidity: ${humidity}%</p>
@@ -61,30 +58,9 @@ const render = () => {
     });
 };
 
-const clearData = () => {
-  myDom.userLocation.value = '';
-};
-
-const saveToLocal = () => {
-  localStorage.setItem(
-    myDom.LOCAL_STORAGE_KEY,
-    JSON.stringify(myDom.totalList)
-  );
-};
-
 function UserInput(topic) {
   this.topic = topic;
 }
-
-const convertToCelcius = (numbs) => {
-  numbs = numbs - 273.15;
-  return Math.round(numbs * 10) / 10;
-};
-
-const convertToFahrenheit = (num) => {
-  num = ((num - 273.15) * 9) / 5 + 32;
-  return Math.round(num * 10) / 10;
-};
 
 const giphyGif = () => {
   fetch(
