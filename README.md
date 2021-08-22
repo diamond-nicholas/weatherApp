@@ -11,11 +11,11 @@ This app does the following:
 - User can input location
 - The app displays the weather condition for the user's location
 
-## Built With
+ ## Built With
 
-- Major languages: HTML, CSS, and Javascript
-- Technologies: Webpacker
-- Framework; Bootstrap
+ - Major languages: HTML, CSS, and Javascript
+ - Technologies: Webpacker
+ - Framework; Bootstrap
 
 ## Live Demo
 
