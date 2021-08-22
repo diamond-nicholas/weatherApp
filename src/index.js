@@ -63,12 +63,12 @@ export const render = () => {
 
 const giphyGif = () => {
   fetch(
-    'https://api.giphy.com/v1/gifs/translate?api_key=0tIDbu31Br8aCF7DovZhOoszMrUM5DG1&s=',
+    'https://api.giphy.com/v1/gifs/translate?api_key=0tIDbu31Br8aCF7DovZhOoszMrUM5DG1&s=weather',
     { mode: 'cors' },
   )
     .then((response) => response.json())
-    .then(() => {
-      myDom.imgApi.src = 'https://media.giphy.com/media/Tp8f13yfSadR2XMJof/giphy.gif?cid=ecf05e47okvuo2qzxbwwoofgbhj53xwxwvlzj1yhk38reg25&rid=giphy.gif&ct=g';
+    .then((response) => {
+      myDom.imgApi.src = response.data.images.original.url;
     });
 };
 giphyGif();
