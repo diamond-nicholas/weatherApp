@@ -16,6 +16,7 @@ myDom.userLocationForm.addEventListener('submit', (e) => {
   const listValue = new UserInput(userData);
   myDom.totalList.push(listValue.topic);
   utilis.saveAndRender();
+  utilis.toggleBackground();
   utilis.clearData();
 });
 

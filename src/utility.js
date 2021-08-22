@@ -18,4 +18,8 @@ const clearData = () => {
   myDom.userLocation.value = '';
 };
 
-export { saveAndRender, clearData };
+const toggleBackground = () => {
+  document.querySelector('body').classList.toggle('newBg');
+};
+
+export { saveAndRender, clearData, toggleBackground };
