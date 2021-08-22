@@ -12,9 +12,9 @@ function UserInput(topic) {
 myDom.userLocationForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const userData = myDom.userLocation.value;
-  const listValue = new UserInput(userData);
-  myDom.totalList.push(listValue.topic);
+  // const userData = myDom.userLocation.value;
+  // const listValue = new UserInput(userData);
+  // myDom.totalList.push(listValue.topic);
   utilis.saveAndRender();
   utilis.toggleBackground();
   utilis.clearData();
@@ -59,6 +59,7 @@ export const render = () => {
       });
 
       myDom.figuresContainer.appendChild(myDom.tempDisplay);
+      myDom.totalList.push(`${convert.convertToCelcius(mainTemp)}`);
     });
 };
 
@@ -68,8 +69,16 @@ const giphyGif = () => {
     { mode: 'cors' },
   )
     .then((response) => response.json())
-    .then((response) => {
-      myDom.imgApi.src = response.data.images.original.url;
+    .then(() => {
+      const myNum = (num) => {
+        if (num > 20) {
+          myDom.imgApi.src = 'https://media.giphy.com/media/26gs87YcoCMeQFMcw/giphy.gif?cid=ecf05e47xbb8yubujlf97nuldsq14s00gzym3mizev44y7mf&rid=giphy.gif&ct=g';
+        } else if (num < 20) {
+          myDom.imgApi.src = 'https://media.giphy.com/media/3osxYzIQRqN4DOEddC/giphy.gif?cid=ecf05e471poty2ap9c1g0a63i3mfbjpuwv7r2bpyip9aiw8k&rid=giphy.gif&ct=g';
+        }
+      };
+
+      myDom.totalList.forEach(myNum);
     });
 };
 giphyGif();
