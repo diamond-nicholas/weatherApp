@@ -23,7 +23,7 @@ export const render = () => {
   const userData = myDom.userLocation.value;
   const listValue = new UserInput(userData);
   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${listValue.topic}&APPID=0cf445a88889f0cf5a9d5efd11501067`,
+    `https://api.openweathermap.org/data/2.5/weather?q=${listValue.topic}&APPID=0cf445a88889f0cf5a9d5efd11501067`,
     {
       mode: 'cors',
     },
