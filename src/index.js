@@ -1,6 +1,5 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable import/prefer-default-export */
-import * as myToken from './token';
 import * as myDom from './dom';
 import * as convert from './convert';
 import * as utilis from './utility';
@@ -24,7 +23,7 @@ export const render = () => {
   const userData = myDom.userLocation.value;
   const listValue = new UserInput(userData);
   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${listValue.topic}&APPID=${myToken.TOKEN}`,
+    `http://api.openweathermap.org/data/2.5/weather?q=${listValue.topic}&APPID=${myDom.TOKEN}`,
     {
       mode: 'cors',
     },
