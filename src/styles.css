@@ -1,3 +1,64 @@
-.hello {
-  color: red;
+body {
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(247, 253, 166, 1) 11.2%,
+    rgba(128, 255, 221, 1) 57.8%,
+    rgba(255, 128, 249, 1) 85.9%
+  );
+}
+
+.location_title {
+  font-size: 2rem;
+}
+.location_title:hover {
+  font-size: 2.3rem;
+}
+
+.location_title2 {
+  font-size: 2rem;
+  color: rgb(138, 187, 3);
+}
+.location_title2:hover {
+  font-size: 2.3rem;
+}
+
+.location_title3 {
+  font-size: 2rem;
+  color: rgb(7, 130, 245);
+}
+.location_title3:hover {
+  font-size: 2.3rem;
+}
+.cur-temp {
+  font-size: 1.5rem;
+  color: aqua;
+  font-weight: 600;
+}
+.cur-temp2 {
+  font-size: 1.5rem;
+  color: rgb(255, 0, 0);
+  font-weight: 600;
+}
+.cur-temp3 {
+  font-size: 1.5rem;
+  color: rgb(255, 217, 0);
+  font-weight: 600;
+}
+
+.hum {
+  font-size: 1.3rem;
+  color: rgb(255, 217, 0);
+  font-weight: 600;
+}
+
+.hum2 {
+  font-size: 1.3rem;
+  color: rgb(0, 255, 0);
+  font-weight: 600;
+}
+
+.hum3 {
+  font-size: 1.3rem;
+  color: rgb(130, 199, 2);
+  font-weight: 600;
 }
