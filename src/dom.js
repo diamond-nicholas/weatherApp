@@ -8,4 +8,4 @@ export const imgApi = document.querySelector('.giphy');
 export const checkConverter = document.querySelector('.form-check-input');
 
 export const totalList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
-export const TOKEN = '0cf445a88889f0cf5a9d5efd11501067';
+// export const TOKEN = '0cf445a88889f0cf5a9d5efd11501067';
