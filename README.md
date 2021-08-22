@@ -19,7 +19,7 @@ This app does the following:
 
 ## Live Demo
 
-[Live Demo Link](https://kind-carson-bda05d.netlify.app/)
+[Live Demo Link](https://sad-snyder-b717c3.netlify.app/)
 
 ## Getting Started\*
 
