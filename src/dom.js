@@ -7,5 +7,4 @@ export const LOCAL_STORAGE_KEY = 'task.totalList';
 export const imgApi = document.querySelector('.giphy');
 export const checkConverter = document.querySelector('.form-check-input');
 
-export let totalList =
-  JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+export const totalList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];

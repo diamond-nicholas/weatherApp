@@ -1,8 +1,14 @@
+/* eslint-disable import/no-cycle */
+/* eslint-disable import/prefer-default-export */
 import * as myToken from './token';
 import * as myDom from './dom';
 import * as convert from './convert';
 import * as utilis from './utility';
 import './styles.css';
+
+function UserInput(topic) {
+  this.topic = topic;
+}
 
 myDom.userLocationForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -21,14 +27,12 @@ export const render = () => {
     `http://api.openweathermap.org/data/2.5/weather?q=${listValue.topic}&APPID=${myToken.TOKEN}`,
     {
       mode: 'cors',
-    }
+    },
   )
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (response) {
+    .then((response) => response.json())
+    .then((response) => {
       const mainTemp = response.main.temp;
-      const humidity = response.main.humidity;
+      const { humidity } = response.main;
       myDom.tempDisplay.innerHTML = `
       <h4 class="card-title text-center text-info location_title">${listValue.topic}</h4>
               <p class="card-text text-center cur-temp">Current Temp: ${mainTemp} kelvin </p>
@@ -39,16 +43,16 @@ export const render = () => {
           myDom.tempDisplay.innerHTML = `
       <h4 class="card-title text-center location_title2">${listValue.topic}</h4>
               <p class="card-text text-center cur-temp2">Current Temp: ${convert.convertToFahrenheit(
-                mainTemp
-              )} °F</p>
+    mainTemp,
+  )} °F</p>
               <p class="card-text text-center hum2">Humidity: ${humidity}%</p>
       `;
         } else {
           myDom.tempDisplay.innerHTML = `
       <h4 class="card-title text-center location_title3">${listValue.topic}</h4>
               <p class="card-text text-center cur-temp3">Current Temp: ${convert.convertToCelcius(
-                mainTemp
-              )} °C </p>
+    mainTemp,
+  )} °C </p>
               <p class="card-text text-center hum3">Humidity: ${humidity}%</p>
       `;
         }
@@ -58,21 +62,14 @@ export const render = () => {
     });
 };
 
-function UserInput(topic) {
-  this.topic = topic;
-}
-
 const giphyGif = () => {
   fetch(
     'https://api.giphy.com/v1/gifs/translate?api_key=0tIDbu31Br8aCF7DovZhOoszMrUM5DG1&s=',
-    { mode: 'cors' }
+    { mode: 'cors' },
   )
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function () {
-      myDom.imgApi.src =
-        'https://media.giphy.com/media/Tp8f13yfSadR2XMJof/giphy.gif?cid=ecf05e47okvuo2qzxbwwoofgbhj53xwxwvlzj1yhk38reg25&rid=giphy.gif&ct=g';
+    .then((response) => response.json())
+    .then(() => {
+      myDom.imgApi.src = 'https://media.giphy.com/media/Tp8f13yfSadR2XMJof/giphy.gif?cid=ecf05e47okvuo2qzxbwwoofgbhj53xwxwvlzj1yhk38reg25&rid=giphy.gif&ct=g';
     });
 };
 giphyGif();

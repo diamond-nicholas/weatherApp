@@ -1,5 +1,5 @@
 const convertToCelcius = (numbs) => {
-  numbs = numbs - 273.15;
+  numbs -= 273.15;
   return Math.round(numbs * 10) / 10;
 };
 
