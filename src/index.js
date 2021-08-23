@@ -12,9 +12,6 @@ function UserInput(topic) {
 myDom.userLocationForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  // const userData = myDom.userLocation.value;
-  // const listValue = new UserInput(userData);
-  // myDom.totalList.push(listValue.topic);
   utilis.saveAndRender();
   utilis.toggleBackground();
   utilis.clearData();
@@ -65,16 +62,16 @@ export const render = () => {
 
 const giphyGif = () => {
   fetch(
-    'https://api.giphy.com/v1/gifs/translate?api_key=0tIDbu31Br8aCF7DovZhOoszMrUM5DG1&s=weather',
+    'https://api.giphy.com/v1/gifs/translate?api_key=0tIDbu31Br8aCF7DovZhOoszMrUM5DG1&s=cloud',
     { mode: 'cors' },
   )
     .then((response) => response.json())
-    .then(() => {
+    .then((response) => {
       const myNum = (num) => {
         if (num > 20) {
-          myDom.imgApi.src = 'https://media.giphy.com/media/26gs87YcoCMeQFMcw/giphy.gif?cid=ecf05e47xbb8yubujlf97nuldsq14s00gzym3mizev44y7mf&rid=giphy.gif&ct=g';
+          myDom.imgApi.src = response.data.images.original.url;
         } else if (num < 20) {
-          myDom.imgApi.src = 'https://media.giphy.com/media/3osxYzIQRqN4DOEddC/giphy.gif?cid=ecf05e471poty2ap9c1g0a63i3mfbjpuwv7r2bpyip9aiw8k&rid=giphy.gif&ct=g';
+          myDom.imgApi.src = response.data.images.original.webp;
         }
       };
 
