@@ -1,0 +1,44 @@
+.title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #2dcbfd;
+}
+
+.title span {
+  color: #fdbb2d;
+}
+
+.figures-container {
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  width: fit-content;
+}
+
+.newBg {
+  background-color: #ff3cac;
+  background-image: linear-gradient(
+    225deg,
+    #ff3cac 0%,
+    #784ba0 50%,
+    #2b86c5 100%
+  );
+}
+
+.switch {
+  font-size: 2rem;
+}
+
+.switch .celcius {
+  color: #c850c0;
+  font-weight: 700;
+}
+
+.switch .fahrenheit {
+  color: crimson;
+  font-weight: 700;
+}
